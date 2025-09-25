@@ -1,0 +1,11 @@
+# Virtual Environment
+.venv
+
+# Testing Files
+2-PentanoneCNMR.jdx
+2-PentanoneHNMR.jdx
+2-PentanoneIR.jdx
+2-PentanoneStruc.jdx
+plot_1d.png
+
+
