@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS
-from process import build_jcamp
+from process import build_jcamp, build_jcamp_blocks, build_metadata, build_assignment_table
 import os
 
 app = Flask(__name__)
@@ -14,12 +14,18 @@ def testing_route():
 @app.route('/build_jcamp', methods=['POST'])
 def build_jcamp_route():
     data = request.json
-    metadatas = data.get('metadatas', {})
-    assignments = data.get('assignments', [])
+    metadatas_dict = data.get('metadatas', {})
+    assignments_list = data.get('assignments', [])
     spec_jcamp = data.get('specJcamp', '')
     struc_jcamp = data.get('strucJcamp', '')
 
-    built_jcamp = build_jcamp(metadatas, struc_jcamp, spec_jcamp, assignments)  # type: ignore
+    spec_bloc = build_jcamp_blocks(spec_jcamp, 4)
+    struc_bloc = build_jcamp_blocks(struc_jcamp, 1)
+
+    metadata = build_metadata(metadatas_dict)
+    assign_table = build_assignment_table(assignments_list)
+
+    built_jcamp = build_jcamp(metadata, struc_bloc, spec_bloc, assign_table)
 
     return built_jcamp
 
