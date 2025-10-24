@@ -84,28 +84,28 @@ print(build_assignment_table(peak_list))
 def build_jcamp(metadatas:str, structure: str, spectrum: str, assignments: str) -> str:
     return "\n\n".join([metadatas, structure, assignments, spectrum])
 
-# read file 
-struc_path = input("Enter the struc filename: ")
-with open(struc_path + ".jdx", "r") as f:
-    struc = f.read()
+# testing
+# struc_path = input("Enter the struc filename: ")
+# with open(struc_path + ".jdx", "r") as f:
+#     struc = f.read()
 
-spec_path = input("Enter the spec filename: ")
-with open(spec_path + ".jdx", "r") as f:
-    spec = f.read()
+# spec_path = input("Enter the spec filename: ")
+# with open(spec_path + ".jdx", "r") as f:
+#     spec = f.read()
 
-spec_bloc = build_jcamp_blocks(spec, 4)
-struc_bloc = build_jcamp_blocks(struc, 1)
+# spec_bloc = build_jcamp_blocks(spec, 4)
+# struc_bloc = build_jcamp_blocks(struc, 1)
 
-metadata = build_metadata(metadatas)
-# peaks_table = build_peak_table(peak_list)
-assign_table = build_assignment_table(peak_list)
-merged = build_jcamp(metadata, struc_bloc, spec_bloc, assign_table)
+# metadata = build_metadata(metadatas)
+# # peaks_table = build_peak_table(peak_list)
+# assign_table = build_assignment_table(peak_list)
+# merged = build_jcamp(metadata, struc_bloc, spec_bloc, assign_table)
 
-out_path = input("Enter output filename: ")
-with open(out_path + "MS.jdx", "w") as f:
-    f.write(merged)
+# out_path = input("Enter output filename: ")
+# with open(out_path + "MS.jdx", "w") as f:
+#     f.write(merged)
 
-print(f"Merged file saved as {out_path}")
+# print(f"Merged file saved as {out_path}")
 
 # Peak Auto Identification
 # dic, data = ng.jcampdx.read("2-PentanoneHNMR.jdx")
