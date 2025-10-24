@@ -27,8 +27,7 @@ def get_input():
     metadatas = request.json['metadatas']
     assignments = request.json['assignments']
     spec_jcamp = request.json['specJcamp']
-    struc_jcamp = request.json['strucJcamp']
-
+    struc_jcamp = request.json['strucJcamp'] 
 
 @app.route('/build_jcamp')
 def check_draw():
