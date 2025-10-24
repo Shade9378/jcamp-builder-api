@@ -22,10 +22,10 @@ def build_jcamp_route():
     spec_bloc = build_jcamp_blocks(spec_jcamp, 4)
     struc_bloc = build_jcamp_blocks(struc_jcamp, 1)
 
-    metadata = build_metadata(metadatas_dict)
+    metadatas = build_metadata(metadatas_dict)
     assign_table = build_assignment_table(assignments_list)
 
-    built_jcamp = build_jcamp(metadata, struc_bloc, spec_bloc, assign_table)
+    built_jcamp = build_jcamp(metadatas, struc_bloc, spec_bloc, assign_table)
 
     return built_jcamp
 
